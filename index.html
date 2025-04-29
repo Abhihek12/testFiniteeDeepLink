@@ -9,7 +9,7 @@
       const id = urlParams.get('id');         // e.g., the UUID
 
       const appUrl = `finitee://scanQrcode/${target}/${id}`;
-      const fallbackWebUrl = `http://localhost:8100/${target}/${id}`;
+      const fallbackWebUrl = `http://localhost:8100/scanQrcode/${target}/${id}`;
 
       // Attempt to open the app
       window.location = appUrl;
