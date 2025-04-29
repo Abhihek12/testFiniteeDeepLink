@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Opening App...</title>
+  <script>
+    function openApp() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const target = urlParams.get('target'); // e.g., 'rolodex'
+      const id = urlParams.get('id');         // e.g., the UUID
+
+      const appUrl = `finitee://scanQrcode/${target}/${id}`;
+      const fallbackWebUrl = `https://google.com/${target}/${id}`;
+
+      // Attempt to open the app
+      window.location = appUrl;
+
+      // Fallback after 1.5s
+      setTimeout(() => {
+        window.location.href = fallbackWebUrl;
+      }, 1500);
+    }
+  </script>
+</head>
+<body onload="openApp()">
+  <p>Opening app…</p>
+</body>
+</html>
